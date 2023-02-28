@@ -18,9 +18,13 @@ namespace mission_9_CollinYoung.Controllers
             repo = temp;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int pagenum = 1)
         {
-            var db = repo.Books.ToList();
+            int pagesize = 10;
+            var db = repo.Books
+                .OrderBy(b => b.Title)
+                .Skip((pagenum-1) * pagesize)
+                .Take(pagesize);
             return View(db);
         }
 

@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-@model List<Books>
+@model IQueryable<Books>
 
 
 
@@ -16,3 +16,6 @@
             <li>@x.PageCount</li>
         </ul>
     }
+
+<div 
+<a asp-action="Index" asp-route-pagenum="1">Next</a>
