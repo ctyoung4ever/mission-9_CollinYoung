@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model List<Books>
+
+
+
+<h1>Books</h1>
+
+@foreach (Books x in Model)
+    {
+        <h3>@x.Title</h3>
+        <ul>
+            <li>@x.Author</li>
+            <li>@x.PageCount</li>
+        </ul>
+    }
