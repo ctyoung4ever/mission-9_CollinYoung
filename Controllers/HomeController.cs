@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using mission_9_CollinYoung.Models;
+using mission_9_CollinYoung.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,12 +21,23 @@ namespace mission_9_CollinYoung.Controllers
 
         public IActionResult Index(int pagenum = 1)
         {
-            int pagesize = 10;
-            var db = repo.Books
+            int pagesize = 2;
+            var x = new BooksViewModel
+            {
+                Books = repo.Books
                 .OrderBy(b => b.Title)
-                .Skip((pagenum-1) * pagesize)
-                .Take(pagesize);
-            return View(db);
+                .Skip((pagenum - 1) * pagesize)
+                .Take(pagesize)
+            ,
+                PageInfo = new PageInfo
+                {
+                    TotalNumBooks = repo.Books.Count(),
+                    BooksPerPage = pagesize,
+                    CurrentPage = pagenum
+                }
+            };
+          
+            return View(x);
         }
 
         public IActionResult Privacy()

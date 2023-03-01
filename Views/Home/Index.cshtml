@@ -2,13 +2,13 @@
 @{
     ViewData["Title"] = "Index";
 }
-@model IQueryable<Books>
+@model BooksViewModel
 
 
 
 <h1>Books</h1>
 
-@foreach (Books x in Model)
+@foreach (Books x in Model.Books)
     {
         <h3>@x.Title</h3>
         <ul>
@@ -17,5 +17,4 @@
         </ul>
     }
 
-<div 
-<a asp-action="Index" asp-route-pagenum="1">Next</a>
+<div page-model="@Model.PageInfo" page-action="Index"></div>
