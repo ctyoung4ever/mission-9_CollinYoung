@@ -21,7 +21,7 @@ namespace mission_9_CollinYoung.Controllers
 
         public IActionResult Index(int pagenum = 1)
         {
-            int pagesize = 2;
+            int pagesize = 10;
             var x = new BooksViewModel
             {
                 Books = repo.Books

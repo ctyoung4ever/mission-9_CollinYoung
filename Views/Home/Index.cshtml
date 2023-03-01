@@ -6,15 +6,45 @@
 
 
 
-<h1>Books</h1>
-
-@foreach (Books x in Model.Books)
+<h1>Books in our Library</h1>
+<table class="table border table-striped">
+    <tr>
+    <th class="border">Title</th>
+    <th class="border">Author</th>
+    <th class="border">Publisher</th>
+    <th class="border">ISBN NUM</th>
+    <th class="border">Category</th>
+    <th class="border">Page Count</th>
+    <th class="border">Price</th>
+    </tr>
+    @foreach (Books x in Model.Books)
     {
-        <h3>@x.Title</h3>
-        <ul>
-            <li>@x.Author</li>
-            <li>@x.PageCount</li>
-        </ul>
-    }
 
-<div page-model="@Model.PageInfo" page-action="Index"></div>
+            <tr>
+                <td class="border">@x.Title</td>
+       
+                <td class="border">
+                    @x.Author
+                </td>
+                <td class="border">
+                    @x.Publisher
+                </td>
+                <td class="border">
+                    @x.Isbn
+                </td>
+                <td class="border">
+                    @x.Category
+                </td>
+                <td class="border">
+                    @x.PageCount
+                </td>
+                <td class="border">
+                    $@x.Price
+                </td>
+       
+            </tr>
+        }
+</table>
+<footer>
+    <div page-model="@Model.PageInfo" page-action="Index"></div>
+</footer>
