@@ -12,6 +12,6 @@ namespace mission_9_CollinYoung.Models
         {
             context = temp;
         }
-        public IQueryable<Books> Books => context.Books;
+        public IQueryable<Book> Books => context.Books;
     }
 }

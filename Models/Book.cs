@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace mission_9_CollinYoung.Models
 {
-    public partial class Books
+    public partial class Book
     {
         [Key]
         [Required]

@@ -17,32 +17,10 @@
     <th class="border">Page Count</th>
     <th class="border">Price</th>
     </tr>
-    @foreach (Books x in Model.Books)
+    @foreach (Book x in Model.Books)
     {
-
-            <tr>
-                <td class="border">@x.Title</td>
-       
-                <td class="border">
-                    @x.Author
-                </td>
-                <td class="border">
-                    @x.Publisher
-                </td>
-                <td class="border">
-                    @x.Isbn
-                </td>
-                <td class="border">
-                    @x.Category
-                </td>
-                <td class="border">
-                    @x.PageCount
-                </td>
-                <td class="border">
-                    $@x.Price
-                </td>
-       
-            </tr>
+        <partial name="projectsum" model="x"/>
+           
         }
 </table>
 <footer>

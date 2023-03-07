@@ -59,7 +59,9 @@ namespace mission_9_CollinYoung
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index" });
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }

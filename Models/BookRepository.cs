@@ -7,6 +7,6 @@ namespace mission_9_CollinYoung.Models
 {
     public interface BookRepository
     {
-        IQueryable<Books> Books {get;}
+        IQueryable<Book> Books {get;}
     }
 }
