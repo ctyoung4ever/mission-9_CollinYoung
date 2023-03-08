@@ -32,7 +32,9 @@ namespace mission_9_CollinYoung.Controllers
             ,
                 PageInfo = new PageInfo
                 {
-                    TotalNumBooks = repo.Books.Count(),
+                    TotalNumBooks = (projectType == null ? 
+                    repo.Books.Count() : 
+                    repo.Books.Where(x => x.Category == projectType).Count()),
                     BooksPerPage = pagesize,
                     CurrentPage = pagenum
                 }

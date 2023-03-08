@@ -25,5 +25,12 @@
     <td class="border">
         $@Model.Price
     </td>
+    <td class="border">
+        <form method="post" asp-page="/Cart">
+        <input type="hidden" asp-for="@Model.BookId"/>
+        <span class="card-text">
+        <button type="submit" class="btn btn-success btn-sm">Add to Cart</button>     
+        </span></form>
+    </td>
 
 </tr>

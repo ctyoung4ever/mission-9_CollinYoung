@@ -18,6 +18,7 @@ namespace mission_9_CollinYoung.Components
         public IViewComponentResult Invoke()
         {
             ViewBag.SelectedType = RouteData?.Values["projectType"];
+            ViewBag.SelectedType = RouteData?.Values["projectType"];
             var types = repo.Books.Select(x => x.Category).Distinct().OrderBy(x => x);
 
             return View(types);

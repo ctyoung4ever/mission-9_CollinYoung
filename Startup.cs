@@ -33,6 +33,8 @@ namespace mission_9_CollinYoung
            });
 
             services.AddScoped<BookRepository, efBookRepository>();
+
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,6 +71,8 @@ namespace mission_9_CollinYoung
                 
 
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }
