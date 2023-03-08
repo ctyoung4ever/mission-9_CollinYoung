@@ -57,15 +57,17 @@ namespace mission_9_CollinYoung
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("typepage", "{projectType}/Page{pageNum}", new { Controller = "Home", action = "Index" });
+                endpoints.MapControllerRoute("typePage", "{projectType}/Page{pageNum}", 
+                    new { Controller = "Home", action = "Index" });
                 
+                endpoints.MapControllerRoute("Paging", "Page{pageNum}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+
                 endpoints.MapControllerRoute("type", "{projectType}",
                     new { Controller = "Home", action = "Index", pageNum = 1 });
                 
-                endpoints.MapControllerRoute("paging", "Page{pageNum}",
-                new { Controller = "Home", action = "Index" }
-            );
                 
+
                 endpoints.MapDefaultControllerRoute();
             });
         }
