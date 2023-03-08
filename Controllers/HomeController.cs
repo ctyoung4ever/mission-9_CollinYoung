@@ -19,12 +19,13 @@ namespace mission_9_CollinYoung.Controllers
             repo = temp;
         }
 
-        public IActionResult Index(int pagenum = 1)
+        public IActionResult Index(string projectType, int pagenum = 1)
         {
             int pagesize = 10;
             var x = new BooksViewModel
             {
                 Books = repo.Books
+                .Where(p => p.Category == projectType || projectType == null)
                 .OrderBy(b => b.Title)
                 .Skip((pagenum - 1) * pagesize)
                 .Take(pagesize)
