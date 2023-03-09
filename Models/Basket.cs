@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace mission_9_CollinYoung.Models
+{
+    public class Basket
+    {
+        public List<BasketLineItem> Item { get; set; } = new List<BasketLineItem>();
+
+        public void AddItem (Book b, int qty)
+        {
+            BasketLineItem Line = Item.Where(p => p.Book.BookId == b.BookId)
+                .FirstOrDefault();
+
+            if (Line == null)
+            {
+                Item.Add(new BasketLineItem
+                {
+                    Book = b,
+                    Quantity = qty
+                });
+            }
+            else
+            {
+                Line.Quantity += qty;
+            }
+        }
+
+        public double CalculateTotal()
+        {
+            double sum = Item.Sum(x => x.Quantity * x.Book.Price);
+            return sum;
+        }
+        
+    }
+
+    public class BasketLineItem
+    {
+        public int LineID { get; set; }
+        public Book Book { get; set; }
+        public int Quantity { get; set; }
+    }
+}

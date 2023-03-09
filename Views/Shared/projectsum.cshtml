@@ -28,8 +28,9 @@
     <td class="border">
         <form method="post" asp-page="/Cart">
         <input type="hidden" asp-for="@Model.BookId"/>
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
         <span class="card-text">
-        <button type="submit" class="btn btn-success btn-sm">Add to Cart</button>     
+        <button type="submit" class="btn btn-dark btn-sm">Add to Cart</button>     
         </span></form>
     </td>
 
