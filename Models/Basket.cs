@@ -9,7 +9,7 @@ namespace mission_9_CollinYoung.Models
     {
         public List<BasketLineItem> Item { get; set; } = new List<BasketLineItem>();
 
-        public void AddItem (Book b, int qty)
+        public virtual void AddItem (Book b, int qty)
         {
             BasketLineItem Line = Item.Where(p => p.Book.BookId == b.BookId)
                 .FirstOrDefault();
@@ -28,6 +28,15 @@ namespace mission_9_CollinYoung.Models
             }
         }
 
+        public virtual void RemoveItem(Book b)
+        {
+            Item.RemoveAll(p => p.Book.BookId == b.BookId);
+        }
+
+        public virtual void ClearBasket()
+        {
+            Item.Clear();
+        }
         public double CalculateTotal()
         {
             double sum = Item.Sum(x => x.Quantity * x.Book.Price);
