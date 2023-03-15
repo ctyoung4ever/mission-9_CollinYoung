@@ -12,9 +12,10 @@ namespace mission_9_CollinYoung.Pages
     public class CartModel : PageModel
     {
         private BookRepository repo { get; set; }
-        public CartModel (BookRepository temp)
+        public CartModel (BookRepository temp, Basket h)
         {
             repo = temp;
+            basket = h;
         }
         public Basket basket { get; set; }
         public string ReturnUrl { get; set; }
@@ -35,9 +36,10 @@ namespace mission_9_CollinYoung.Pages
             return RedirectToPage(new { ReturnUrl = returnUrl }); ;
         }
 
-        public IActionResult OnPostRemove()
+        public IActionResult OnPostRemove(int BookId, string returnUrl)
         {
-            
+            basket.RemoveItem(basket.Item.First(x => x.Book.BookId == BookId).Book);
+            return RedirectToPage(new { ReturnUrl = returnUrl });
         }
     }
 }

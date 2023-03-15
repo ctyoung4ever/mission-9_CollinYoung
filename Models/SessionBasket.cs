@@ -15,6 +15,7 @@ namespace mission_9_CollinYoung.Models
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
             SessionBasket basket = session?.GetJson<SessionBasket>("Basket") ?? new SessionBasket();
+            basket.Session = session;
             return basket;
         }
 
@@ -30,7 +31,7 @@ namespace mission_9_CollinYoung.Models
         public override void RemoveItem(Book b)
         {
             base.RemoveItem(b);
-            Session.SetJson("Bakset", this);
+            Session.SetJson("Basket", this);
         }
 
         public override void ClearBasket()
