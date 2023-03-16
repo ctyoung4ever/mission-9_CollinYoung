@@ -7,7 +7,7 @@
 
 <p>Please enter your details and we will ship your purchase to you.</p>
 
-<form method="post">
+<form method="post" asp-controller="Purchase" asp-action="Checkout">
 
     <h4>Ship to</h4>
 
@@ -46,4 +46,4 @@
         <input class="btn btn-primary" type="submit" value="Send Purchase" />
     </div>
 
-</form>"
+</form>
