@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace mission_9_CollinYoung.Models
 {
-    public class PurchaseRepository
+    public interface PurchaseRepository
     {
         IQueryable<Purchase> Purchase { get; }
         public void SavePurchase(Purchase purchase);

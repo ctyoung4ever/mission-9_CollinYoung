@@ -34,7 +34,7 @@ namespace mission_9_CollinYoung
            });
 
             services.AddScoped<BookRepository, efBookRepository>();
-
+            services.AddScoped<PurchaseRepository, EFPurchaseRepository>();
             services.AddRazorPages();
 
             services.AddDistributedMemoryCache();

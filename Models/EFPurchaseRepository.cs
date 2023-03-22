@@ -14,11 +14,19 @@ namespace mission_9_CollinYoung.Models
         {
             context = temp;
         }
-        public IQueryable<Purchase> Purchase => context.Books.Include(x => x.Lines);
+        public IQueryable<Purchase> Purchase => context.Purchase.Include(x => x.Lines).ThenInclude(x => x.Book);
 
         public void SavePurchase(Purchase purchase)
         {
-            throw new NotImplementedException();
+
+            context.AttachRange(purchase.Lines.Select(x => x.Book));
+
+            if (purchase.PurchaseId == 0)
+            {
+                context.Purchase.Add(purchase);
+            }
+
+            context.SaveChanges();
         }
     }
 }
